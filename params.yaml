@@ -1,0 +1,7 @@
+make_dataset:
+  test_split: .2
+  seed: 2001
+train_model:
+  seed: 26
+  n_estimators: 50
+  max_depth: 10

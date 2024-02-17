@@ -1,0 +1,6 @@
+[core]
+    remote = myremote
+['remote "storage"']
+    url = https://console.cloud.google.com/storage/browser/walmart-kaggle-data
+['remote "myremote"']
+    url = /home/anand/Project/ML/MLOPS/walmart/TEMP
