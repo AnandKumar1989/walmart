@@ -1,6 +1,6 @@
 make_dataset:
-  test_split: .2
-  seed: 2001
+  test_split: .05
+  seed: 2002
 train_model:
   seed: 26
   n_estimators: 50
