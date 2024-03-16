@@ -1,0 +1,41 @@
+schema: '2.0'
+stages:
+  make_dataset:
+    cmd: python3 ./src/data/make_dataset.py ./data/raw/Walmart_sales.csv
+    deps:
+    - path: ./data/raw/Walmart_sales.csv
+      hash: md5
+      md5: 9e719933af96a09e97deea2cc468ce1f
+      size: 363732
+    - path: ./src/data/make_dataset.py
+      hash: md5
+      md5: 9360c768366d74532457a8f6dc6d533f
+      size: 1330
+    params:
+      params.yaml:
+        make_dataset.seed: 2002
+        make_dataset.test_split: 0.05
+    outs:
+    - path: ./data/processed/
+      hash: md5
+      md5: ad0c55c631238b23223a1f52dee28c04.dir
+      size: 556481
+      nfiles: 2
+  train_model:
+    cmd: python3 ./src/models/train_model.py ./data/processed/
+    deps:
+    - path: ./data/processed/
+      hash: md5
+      md5: ad0c55c631238b23223a1f52dee28c04.dir
+      size: 556481
+      nfiles: 2
+    - path: ./src/models/train_model.py
+      hash: md5
+      md5: 7c5d0facfc676ce49a29cde3d25769d0
+      size: 2017
+    outs:
+    - path: ./models/
+      hash: md5
+      md5: 8a6933045b80ad84a47929606ad8605f.dir
+      size: 3497964
+      nfiles: 1
